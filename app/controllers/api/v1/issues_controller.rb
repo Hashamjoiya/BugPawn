@@ -4,7 +4,7 @@ module Api
       before_action :set_issue, only: %i[show update destroy]
 
       def index
-        @query = Issue.ransack(params[:q])
+        @query = Issue.includes([:rich_text_content]).ransack(params[:q])
         @pagy, @issues = pagy(@query.result)
 
         render :index
@@ -39,11 +39,11 @@ module Api
       private
 
       def set_issue
-        @issue = Issue.find(params[:id])
+        @issue = Issue.includes([:rich_text_content]).find(params[:id])
       end
 
       def issue_params
-        params.require(:issue).permit(:title, :description, :status, :assignee_id, :author_id)
+        params.require(:issue).permit(:title, :content, :status, :assignee_id, :author_id)
       end
     end
   end

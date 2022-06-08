@@ -3,7 +3,6 @@
 # Table name: issues
 #
 #  id          :bigint           not null, primary key
-#  description :text
 #  status      :integer
 #  title       :string
 #  created_at  :datetime         not null
@@ -19,7 +18,7 @@
 FactoryBot.define do
   factory :issue do
     title { 'MyString' }
-    description { 'MyText' }
+    content { 'MyText' }
     association :author, factory: :user
     association :assignee, factory: :user
   end

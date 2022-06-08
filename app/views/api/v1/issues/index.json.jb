@@ -2,7 +2,7 @@
   {
     id: issue.id,
     title: issue.title,
-    description: issue.description,
+    content: issue.content&.body&.to_s,
     status: issue.status,
     author_id: issue.author_id,
     assignee_id: issue.assignee_id,

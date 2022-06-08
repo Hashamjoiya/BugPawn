@@ -3,7 +3,6 @@
 # Table name: issues
 #
 #  id          :bigint           not null, primary key
-#  description :text
 #  status      :integer
 #  title       :string
 #  created_at  :datetime         not null
@@ -15,12 +14,14 @@
 #
 #  index_issues_on_assignee_id  (assignee_id)
 #  index_issues_on_author_id    (author_id)
-# rubocop:disable Rails/RedundantPresenceValidationOnBelongsTo
+#
 class Issue < ApplicationRecord
+  has_rich_text :content
+
   belongs_to :author, class_name: 'User'
   belongs_to :assignee, class_name: 'User', optional: true
 
-  validates :title, :description, presence: true
+  validates :title, :content, presence: true
   validates :author, presence: true
 
   before_validation :set_default, on: :create

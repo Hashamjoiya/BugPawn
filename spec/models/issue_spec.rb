@@ -3,7 +3,6 @@
 # Table name: issues
 #
 #  id          :bigint           not null, primary key
-#  description :text
 #  status      :integer
 #  title       :string
 #  created_at  :datetime         not null
@@ -29,7 +28,7 @@ RSpec.describe Issue, type: :model do
 
   describe 'validations', :aggregate_failures do
     it { is_expected.to validate_presence_of :title }
-    it { is_expected.to validate_presence_of :description }
+    it { is_expected.to validate_presence_of :content }
   end
 
   describe 'callbacks' do

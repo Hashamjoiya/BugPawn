@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe '/issues', type: :request, skip_request: true do
   let!(:user) { create(:user) }
   let(:valid_attributes) do
-    { title: 'first bug', description: 'first description', author_id: user.id }
+    { title: 'first bug', content: 'first content', author_id: user.id }
   end
 
   let(:invalid_attributes) do
