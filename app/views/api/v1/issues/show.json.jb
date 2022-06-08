@@ -4,8 +4,20 @@
   content: @issue.content&.body&.to_s,
   status: @issue.status,
   author_id: @issue.author_id,
+  author_name: @issue.author&.first_name,
   assignee_id: @issue.assignee_id,
+  assignee_name: @issue.assignee&.name,
   created_at: @issue.created_at,
   updated_at: @issue.updated_at,
-  thumb_ups: @issue.get_likes.size
+  thumb_ups: @issue.get_likes.size,
+  comments: @issue.comments.map do |comment|
+    {
+      author_id: comment.author&.id,
+      author_name: comment.author&.first_name,
+      content: comment.content&.body&.to_s,
+      thumb_ups: comment.get_likes.size,
+      created_at: comment.created_at,
+      updated_at: comment.updated_at
+    }
+  end
 }

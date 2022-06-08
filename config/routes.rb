@@ -22,7 +22,9 @@ Rails.application.routes.draw do
   namespace :api, defaults: { format: :json } do
     namespace :v1 do
       resource :user, only: %i[show update]
-      resources :issues, concerns: :likeable
+      resources :issues, concerns: :likeable do
+        resources :comments, expect: %i[index show], concerns: :likeable
+      end
 
       devise_scope :user do
         resources :users, only: [] do

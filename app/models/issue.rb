@@ -21,6 +21,10 @@ class Issue < ApplicationRecord
   belongs_to :author, class_name: 'User'
   belongs_to :assignee, class_name: 'User', optional: true
 
+  has_many :comments, dependent: :destroy
+
+  accepts_nested_attributes_for :comments
+
   validates :title, :content, presence: true
   validates :author, presence: true
 
