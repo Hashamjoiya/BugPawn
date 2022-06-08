@@ -1,0 +1,50 @@
+module Api
+  module V1
+    class IssuesController < Api::V1::ApiController
+      before_action :set_issue, only: %i[show update destroy]
+
+      def index
+        @query = Issue.ransack(params[:q])
+        @pagy, @issues = pagy(@query.result)
+
+        render :index
+      end
+
+      def show
+        render :show
+      end
+
+      def create
+        @issue = Issue.new(issue_params)
+
+        if @issue.save
+          render json: @issue, status: :created
+        else
+          render json: @issue.errors, status: :unprocessable_entity
+        end
+      end
+
+      def update
+        if @issue.update(issue_params)
+          render json: @issue
+        else
+          render json: @issue.errors, status: :unprocessable_entity
+        end
+      end
+
+      def destroy
+        @issue.destroy
+      end
+
+      private
+
+      def set_issue
+        @issue = Issue.find(params[:id])
+      end
+
+      def issue_params
+        params.require(:issue).permit(:title, :description, :status, :assignee_id, :author_id)
+      end
+    end
+  end
+end

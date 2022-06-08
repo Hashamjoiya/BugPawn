@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   namespace :api, defaults: { format: :json } do
     namespace :v1 do
       resource :user, only: %i[show update]
+      resources :issues
 
       devise_scope :user do
         resources :users, only: [] do
