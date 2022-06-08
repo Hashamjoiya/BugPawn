@@ -4,14 +4,14 @@ ruby '2.7.2'
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'rails', '~> 6.1.6'
 
+gem 'dotenv-rails', '~> 2.7.6'
+gem 'pg', '~> 1.3.5'
 gem 'puma', '~> 5.6'
 gem 'rack', '~> 2.2.3'
 gem 'rack-attack', '~> 6.6.1'
 gem 'rack-cors', '~> 1.1.1'
-gem 'pg', '~> 1.3.5'
-gem 'strong_migrations', '~> 1.0.0'
-gem 'dotenv-rails', '~> 2.7.6'
 gem 'sidekiq', '~> 6.4.2'
+gem 'strong_migrations', '~> 1.0.0'
 
 gem 'nilify_blanks', '~> 1.4'
 gem 'ransack', '~> 3.2.1'
@@ -25,6 +25,8 @@ gem 'jb', '~> 0.8.0'
 
 # Pagination
 gem 'pagy', '~> 5.10'
+gem 'rswag-api'
+gem 'rswag-ui'
 
 group :development, :test do
   gem 'bullet', '~> 7.0.2'
@@ -32,6 +34,7 @@ group :development, :test do
   gem 'factory_bot_rails', '~> 6.2.0'
   gem 'faker', '~> 2.21.0'
   gem 'rspec-rails', '~> 5.1.2'
+  gem 'rswag-specs'
 end
 
 group :development do
