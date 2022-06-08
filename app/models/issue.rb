@@ -15,9 +15,9 @@
 #  index_issues_on_assignee_id  (assignee_id)
 #  index_issues_on_author_id    (author_id)
 #
-class Issue < ApplicationRecord
-  has_rich_text :content
 
+# rubocop:disable Rails/RedundantPresenceValidationOnBelongsTo
+class Issue < ApplicationRecord
   belongs_to :author, class_name: 'User'
   belongs_to :assignee, class_name: 'User', optional: true
 
@@ -27,6 +27,10 @@ class Issue < ApplicationRecord
   before_validation :set_default, on: :create
 
   enum status: { opened: 0, closed: 1 }
+
+  has_rich_text :content
+
+  acts_as_votable
 
   private
 

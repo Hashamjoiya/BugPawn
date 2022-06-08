@@ -12,10 +12,17 @@ Rails.application.routes.draw do
     token_validations: 'api/v1/token_validations'
   }, skip: %i[omniauth_callbacks registrations]
 
+  concern :likeable do
+    member do
+      get :like
+      delete :unlike
+    end
+  end
+
   namespace :api, defaults: { format: :json } do
     namespace :v1 do
       resource :user, only: %i[show update]
-      resources :issues
+      resources :issues, concerns: :likeable
 
       devise_scope :user do
         resources :users, only: [] do

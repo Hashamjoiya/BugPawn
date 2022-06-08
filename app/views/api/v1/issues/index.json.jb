@@ -6,6 +6,7 @@
     status: issue.status,
     author_id: issue.author_id,
     assignee_id: issue.assignee_id,
+    thumb_ups: issue.get_likes.size,
     url: api_v1_issue_url(issue, format: :json)
   }
 end

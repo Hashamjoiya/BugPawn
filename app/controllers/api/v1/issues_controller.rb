@@ -1,6 +1,8 @@
 module Api
   module V1
     class IssuesController < Api::V1::ApiController
+      include Likeable
+
       before_action :set_issue, only: %i[show update destroy]
 
       def index

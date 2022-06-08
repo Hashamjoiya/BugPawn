@@ -6,5 +6,6 @@
   author_id: @issue.author_id,
   assignee_id: @issue.assignee_id,
   created_at: @issue.created_at,
-  updated_at: @issue.updated_at
+  updated_at: @issue.updated_at,
+  thumb_ups: @issue.get_likes.size
 }
