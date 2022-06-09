@@ -8,6 +8,8 @@ module Api
 
       before_action :authenticate_user!, only: :destroy
 
+      protect_from_forgery unless: -> { request.format.json? }
+
       private
 
       def resource_params
