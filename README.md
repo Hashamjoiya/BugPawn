@@ -5,6 +5,7 @@
     - Issue Comments Crud
     - Issue likeable
     - Comments likebale
+    - Issue tagable/labels
     - Pagination
     - Issue filtering (added ransack sort/search/filter)
     - Rich Text with files/images using trix and actiontext
