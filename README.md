@@ -103,3 +103,7 @@ replace the access-token and client with the one that you got in headers
 | `*_not_i_cont_all` | Does not contain all of values with case insensitive | |
 | `*_true` | is true | |
 | `*_false` | is false | |
+
+##Pending task
+
+Update swagger docs
