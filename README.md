@@ -28,6 +28,22 @@
 
 You can run the unit tests with `rspec` or `rspec` followed by a specific test file or directory.
 
+# Curl
+
+put the curl command to get user access token and client
+
+```bash
+curl -v -X POST -H "Content-Type: application/json" -d '{"user": {"email":"admin@example.com","password":"password123"}}' http://localhost:5000/api/v1/users/sign_in
+
+```
+
+to get all issues 
+
+```bash
+curl -X GET -H 'Content-Type: application/json' -H 'access-token: DJt2eWSBjbmjNAxbOvkFfw' -H 'client: g8Gp3j7mYkKxOHyNGgluXA' -H "uid: admin@example.com" http://localhost:5000/api/v1/issues
+```
+replace the access-token and client with the one that you got in headers
+
 ##Filtering quide
 
 *=>db_field
