@@ -1,6 +1,17 @@
+## Features included
+    - Authentication/sessions
+    - User registration and crud
+    - Issues crud
+    - Issue Comments Crud
+    - Issue likeable
+    - Comments likebale
+    - Pagination
+    - Issue filtering (added ransack sort/search/filter)
+    - Rich Text with files/images using trix and actiontext
+    - Swagger for Api Docs
+    - Handled api errors gracefully.
 
 ## Getting Started
-
 1.  Make sure that you have Rails 6, PostgreSQL, Redis, git cli, and bundle installed.
 3.  Update the values of the `.env.sample` file to match your app
 4.  Create your `.env` file. You have an example at `.env.sample`.
