@@ -35,6 +35,7 @@ class Issue < ApplicationRecord
   has_rich_text :content
 
   acts_as_votable
+  acts_as_taggable_on :labels
 
   private
 

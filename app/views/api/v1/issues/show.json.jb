@@ -10,6 +10,7 @@
   created_at: @issue.created_at,
   updated_at: @issue.updated_at,
   thumb_ups: @issue.get_likes.size,
+  label_list: @issue.label_list,
   comments: @issue.comments.map do |comment|
     {
       author_id: comment.author&.id,
