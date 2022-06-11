@@ -8,7 +8,8 @@ module Api
       def index
         @query = Issue.includes([:rich_text_content]).ransack(params[:q])
         @pagy, @issues = pagy(@query.result)
-
+        pagy_headers_merge(@pagy)
+        
         render :index
       end
 
